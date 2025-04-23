@@ -1,0 +1,22 @@
+# ALS Bengaluru
+# Program to capture a image from a pi webcam
+#connect a USB web camera
+#Install foloowing command in terminal
+#sudo apt install fswebcam
+#All the captured images will be stored at /home/pi/Desktop/MCASyllabus/MCASyllabus/images folder.
+import os
+import datetime
+import sys
+import time
+import subprocess
+#read Absolute path
+current_dir = os.path.dirname(__file__)
+print(current_dir)
+current_date = datetime.datetime.now().strftime('%d-%m-%Y\ %H:%M:%S')
+
+image_path = os.path.join('/home/pi/Desktop/BAAA', current_date+'.jpg')
+print(image_path)
+os.system('fswebcam -r 640x480 --no-banner '+image_path)
+
+print("Image captured")
+time.sleep(2)

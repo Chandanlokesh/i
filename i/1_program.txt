@@ -1,0 +1,72 @@
+
+name = input("Enter your name: ")
+print("Hello ",name) 
+
+
+num1 = int(input("Enter a value for num1: "))
+num2 = int(input("Enter a value for num2: "))
+print("Sum: ",num1+num2)
+print("Difference: ",num1-num2)
+print("Product: ",num1*num2)
+print("Division: ",num1/num2)
+
+
+string = input("Enter a string: ")
+print("Word count = ",len(string.split(" ")))
+print("Character count = ",len(string))
+
+
+
+print("1. Rectangle\n2. Triangle\n3. Circle\nPress any other key to exit ")
+while True:
+    choice = input("Enter a choice: ")
+    if(choice == '1'):
+        w = int(input("Enter the width: "))
+        h = int(input("Enter the height: "))
+        print("The area of rectangle is ", w*h)
+        continue
+    elif(choice == '2'):
+        b = int(input("Enter bredth: "))
+        h = int(input("Enter height: "))
+        print("The area of triangle: ", 0.5*b*h)
+        continue
+    elif(choice == '3'):
+        radius = int(input("Enter radius: "))
+        print("The area of circle: ",
+        3.14*radius*radius)
+        continue
+    else:
+        break
+
+
+name = input("Enter your name: ")
+n = int(input("Enter how many times to print a name: "))
+while n>0:
+ print(name)
+ n = n-1
+
+
+
+
+x = int(input("Enter a value for x: "))
+y = int(input("Enter a value for y: "))
+try:
+ print("x / y = ",x/y)
+except ZeroDivisionError:
+ print("The value of y not to be zero")
+
+
+
+
+import time
+n = 10
+while n>0:
+ print(time.ctime(time.time()))
+ time.sleep(10)
+ n = n-1
+
+
+lines = open("Program1.txt",'r').readlines()
+for i in range(len(lines)):
+ print (f"Line {i+1} Words : {len(lines[i].split(" "))}")
+

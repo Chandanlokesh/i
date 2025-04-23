@@ -1,0 +1,24 @@
+int irSensor = A0;     // IR sensor output connected to A0
+int relayPin = 3;     // Relay control pin connected to D3
+
+void setup() {
+  pinMode(irSensor, INPUT);
+  pinMode(relayPin, OUTPUT);
+  digitalWrite(relayPin, LOW); // Ensure light is OFF initially
+  Serial.begin(9600);
+}
+
+void loop() {
+  int sensorState = analogRead(irSensor); // Read IR sensor state
+  Serial.println(sensorState);
+  if (sensorState < 900) { // Motion detected
+    digitalWrite(relayPin, HIGH); // Turn ON the bulb via relay
+    Serial.println("Motion Detected: Light ON");
+    delay(100); // Keep bulb ON for 10 seconds
+  } else {
+    digitalWrite(relayPin, LOW); // Turn OFF the bulb
+    Serial.println("No Motion: Light OFF");
+  }
+
+  delay(100); // debounce delay
+}
